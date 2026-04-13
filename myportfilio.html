@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Riya Arvadia – Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #0d0f14; --surface: #13161e; --card: #181c26; --border: #232840;
+    --accent: #c8a96e; --accent2: #7b8cde; --text: #e8e6df; --muted: #7a7f94;
+    --heading: 'Playfair Display', serif; --body: 'DM Sans', sans-serif;
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--text); font-family: var(--body); font-size: 15px; line-height: 1.7; overflow-x: hidden; }
+ 
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 48px;
+    background: rgba(13,15,20,0.9); backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo { font-family: var(--heading); font-size: 1.3rem; color: var(--accent); }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--accent); }
+ 
+  section { padding: 96px 10vw; max-width: 1280px; margin: 0 auto; }
+ 
+  #hero {
+    min-height: 100vh; display: flex; flex-direction: column; justify-content: center;
+    padding: 120px 10vw 80px; max-width: 100%; position: relative;
+  }
+  .hero-bg { position: absolute; right: 6vw; top: 50%; transform: translateY(-50%); font-family: var(--heading); font-size: clamp(8rem,18vw,15rem); color: rgba(200,169,110,0.04); line-height: 1; pointer-events: none; user-select: none; font-weight: 700; }
+  .hero-eyebrow { font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent2); margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+  .hero-eyebrow::before { content: ''; display: block; width: 40px; height: 1px; background: var(--accent2); }
+  .hero-name { font-family: var(--heading); font-size: clamp(3rem,7vw,6rem); line-height: 1.05; margin-bottom: 16px; }
+  .hero-name em { color: var(--accent); font-style: italic; }
+  .hero-sub { font-size: 1.05rem; color: var(--muted); font-weight: 300; max-width: 520px; margin-bottom: 36px; }
+  .cta-group { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn { padding: 12px 28px; border-radius: 2px; font-family: var(--body); font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; cursor: pointer; border: none; transition: all 0.25s; }
+  .btn-primary { background: var(--accent); color: #0d0f14; font-weight: 500; }
+  .btn-primary:hover { background: #d9bb85; transform: translateY(-2px); }
+  .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+ 
+  .section-label { font-size: 0.75rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+  .section-title { font-family: var(--heading); font-size: clamp(2rem,4vw,3rem); color: var(--text); margin-bottom: 48px; line-height: 1.2; }
+ 
+  /* ABOUT */
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+  .about-text p { color: var(--muted); margin-bottom: 20px; font-size: 0.97rem; }
+  .about-text strong { color: var(--text); font-weight: 500; }
+  .highlight-card { background: var(--card); border: 1px solid var(--border); padding: 24px 28px; border-radius: 4px; border-left: 3px solid var(--accent); margin-bottom: 20px; transition: transform 0.2s; }
+  .highlight-card:hover { transform: translateX(4px); }
+  .highlight-card h4 { font-size: 0.82rem; color: var(--accent); letter-spacing: 0.06em; margin-bottom: 6px; }
+  .highlight-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.5; }
+ 
+  /* SKILLS */
+  #skills { background: var(--surface); max-width: 100%; padding: 96px 10vw; }
+  .skills-inner { max-width: 1280px; margin: 0 auto; }
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
+  .skill-group { background: var(--card); border: 1px solid var(--border); padding: 28px; border-radius: 4px; transition: border-color 0.2s; }
+  .skill-group:hover { border-color: var(--accent2); }
+  .skill-group h4 { font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent2); margin-bottom: 16px; }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .tag { background: rgba(123,140,222,0.08); color: var(--text); padding: 4px 12px; border-radius: 2px; font-size: 0.8rem; border: 1px solid rgba(123,140,222,0.15); }
+ 
+  /* PROJECTS */
+  .projects-grid { display: flex; flex-direction: column; gap: 28px; }
+  .project-card { background: var(--card); border: 1px solid var(--border); border-radius: 4px; padding: 36px 40px; display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: start; transition: border-color 0.25s, transform 0.25s; }
+  .project-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+  .project-num { font-family: var(--heading); font-size: 3rem; color: rgba(200,169,110,0.12); font-weight: 700; line-height: 1; margin-bottom: 8px; }
+  .project-title { font-family: var(--heading); font-size: 1.4rem; color: var(--text); margin-bottom: 8px; }
+  .project-stack { font-size: 0.78rem; color: var(--accent2); letter-spacing: 0.08em; margin-bottom: 14px; }
+  .project-desc { font-size: 0.9rem; color: var(--muted); margin-bottom: 20px; }
+  .project-links { display: flex; gap: 16px; flex-wrap: wrap; }
+  .project-link { font-size: 0.78rem; color: var(--accent); text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase; border-bottom: 1px solid rgba(200,169,110,0.3); padding-bottom: 2px; transition: border-color 0.2s; }
+  .project-link:hover { border-color: var(--accent); }
+  .project-badge { background: rgba(200,169,110,0.1); color: var(--accent); padding: 6px 14px; border-radius: 2px; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; white-space: nowrap; height: fit-content; border: 1px solid rgba(200,169,110,0.2); }
+ 
+  /* EXPERIENCE */
+  .timeline { display: flex; flex-direction: column; }
+  .timeline-item { display: grid; grid-template-columns: 180px 1fr; gap: 32px; position: relative; padding-bottom: 40px; }
+  .timeline-item::before { content: ''; position: absolute; left: 188px; top: 8px; bottom: 0; width: 1px; background: var(--border); }
+  .timeline-item:last-child::before { display: none; }
+  .timeline-dot { position: absolute; left: 184px; top: 7px; width: 9px; height: 9px; border-radius: 50%; background: var(--accent); border: 2px solid var(--bg); }
+  .timeline-date { font-size: 0.78rem; color: var(--muted); padding-top: 4px; text-align: right; }
+  .timeline-content h4 { font-size: 1rem; color: var(--text); margin-bottom: 4px; }
+  .timeline-content .company { font-size: 0.85rem; color: var(--accent); margin-bottom: 10px; }
+  .timeline-content ul { list-style: none; padding: 0; }
+  .timeline-content ul li { font-size: 0.88rem; color: var(--muted); padding: 3px 0 3px 16px; position: relative; }
+  .timeline-content ul li::before { content: '—'; position: absolute; left: 0; color: var(--accent2); font-size: 0.7rem; }
+ 
+  /* CERTS */
+  .cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+  .cert-card { background: var(--card); border: 1px solid var(--border); padding: 24px; border-radius: 4px; transition: border-color 0.2s; }
+  .cert-card:hover { border-color: var(--accent2); }
+  .cert-icon { font-size: 1.5rem; margin-bottom: 12px; }
+  .cert-name { font-size: 0.9rem; color: var(--text); font-weight: 500; margin-bottom: 6px; }
+  .cert-issuer { font-size: 0.8rem; color: var(--accent2); }
+ 
+  /* CONTACT */
+  #contact { background: var(--surface); max-width: 100%; padding: 96px 10vw; }
+  .contact-inner { max-width: 1280px; margin: 0 auto; }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  .contact-text h3 { font-family: var(--heading); font-size: 2rem; margin-bottom: 16px; }
+  .contact-text p { color: var(--muted); font-size: 0.95rem; }
+  .contact-info { display: flex; flex-direction: column; gap: 16px; }
+  .contact-item { display: flex; align-items: center; gap: 16px; padding: 18px 24px; background: var(--card); border: 1px solid var(--border); border-radius: 4px; text-decoration: none; color: var(--text); transition: border-color 0.2s, transform 0.2s; }
+  .contact-item:hover { border-color: var(--accent); transform: translateX(4px); }
+  .ci-icon { font-size: 1.2rem; }
+  .ci-label { font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
+  .ci-value { font-size: 0.92rem; }
+ 
+  footer { text-align: center; padding: 32px; border-top: 1px solid var(--border); font-size: 0.8rem; color: var(--muted); }
+  footer span { color: var(--accent); }
+ 
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+  .hero-eyebrow { animation: fadeUp 0.6s ease both; }
+  .hero-name { animation: fadeUp 0.7s 0.1s ease both; }
+  .hero-sub { animation: fadeUp 0.7s 0.2s ease both; }
+  .cta-group { animation: fadeUp 0.7s 0.3s ease both; }
+ 
+  @media (max-width: 768px) {
+    nav { padding: 16px 20px; } .nav-links { display: none; }
+    section, #skills, #contact { padding: 64px 24px; }
+    #hero { padding: 100px 24px 60px; }
+    .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+    .timeline-item { grid-template-columns: 1fr; }
+    .timeline-item::before, .timeline-dot { display: none; }
+    .timeline-date { text-align: left; font-weight: 500; color: var(--accent2); }
+    .project-card { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+ 
+<nav>
+  <div class="nav-logo">Riya Arvadia</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+ 
+<!-- HERO -->
+<div id="hero">
+  <div class="hero-bg">RA</div>
+  <div class="hero-eyebrow">Available for opportunities · London, ON</div>
+  <h1 class="hero-name">Riya<br/><em>Arvadia</em></h1>
+  <p class="hero-sub">Technical Sales · Data Analytics · Business Development Representative</p>
+  <div class="cta-group">
+    <a href="#projects" class="btn btn-primary">View Projects</a>
+    <a href="#contact" class="btn btn-outline">Get In Touch</a>
+  </div>
+</div>
+ 
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-label">About Me</div>
+  <h2 class="section-title">Where Technology<br/>Meets Business Impact</h2>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>I'm a <strong>tech-savvy, customer-focused professional</strong> based in London, ON, with a background in Computer Engineering and hands-on experience spanning sales, data analytics, and team leadership.</p>
+      <p>I bring a rare combination: the ability to <strong>understand complex technical products deeply</strong> and communicate their value clearly to customers and stakeholders. Whether I'm building a Power BI dashboard to surface business insights or leading a team through a high-volume environment, I lead with data and people skills.</p>
+      <p>My analytics work — from KPI dashboards tracking 1M+ records to multi-department BI tools — gives me a <strong>data-driven edge in sales</strong>. I use insights to identify opportunities, sharpen targeting, and drive conversions.</p>
+      <p>I'm actively pursuing roles in <strong>Technical Sales, BDR/SDR, or SaaS</strong> where I can bridge the gap between technology and business growth.</p>
+    </div>
+    <div>
+      <div class="highlight-card">
+        <h4>🎓 Education</h4>
+        <p>Computer Systems Software Engineering — George Brown College, Toronto<br/>B.E. Computer Engineering — Gujarat Technological University, India</p>
+      </div>
+      <div class="highlight-card">
+        <h4>📍 Location</h4>
+        <p>London, Ontario, Canada · Open to remote & hybrid roles</p>
+      </div>
+      <div class="highlight-card">
+        <h4>💡 What I Bring</h4>
+        <p>Data analytics + sales instincts + technical depth — a rare combination that turns insights into revenue.</p>
+      </div>
+      <div class="highlight-card">
+        <h4>📬 Contact</h4>
+        <p>riyaarvadia228@gmail.com · +1-647-871-3858</p>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- SKILLS -->
+<div id="skills">
+  <div class="skills-inner">
+    <div class="section-label">Capabilities</div>
+    <h2 class="section-title">Skills & Tools</h2>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <h4>Sales & Customer Experience</h4>
+        <div class="skill-tags">
+          <span class="tag">CRM</span><span class="tag">Lead Generation</span><span class="tag">Objection Handling</span>
+          <span class="tag">Active Listening</span><span class="tag">Relationship Building</span><span class="tag">Upselling</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Data Analytics & Reporting</h4>
+        <div class="skill-tags">
+          <span class="tag">Power BI</span><span class="tag">Advanced Excel</span><span class="tag">KPI Tracking</span>
+          <span class="tag">DAX</span><span class="tag">Power Query</span><span class="tag">Trend Analysis</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Programming & Technical</h4>
+        <div class="skill-tags">
+          <span class="tag">Java</span><span class="tag">SQL</span><span class="tag">Python</span>
+          <span class="tag">Spring Boot</span><span class="tag">REST APIs</span><span class="tag">MySQL</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>CRM & Business Tools</h4>
+        <div class="skill-tags">
+          <span class="tag">Salesforce</span><span class="tag">HubSpot</span><span class="tag">GitHub</span>
+          <span class="tag">Jira</span><span class="tag">ServiceNow</span><span class="tag">Google Sheets</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Cloud & Infrastructure</h4>
+        <div class="skill-tags">
+          <span class="tag">AWS (Basics)</span><span class="tag">Azure (Basics)</span><span class="tag">SDLC</span>
+          <span class="tag">Agile/Scrum</span><span class="tag">Networking Basics</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Soft Skills</h4>
+        <div class="skill-tags">
+          <span class="tag">Leadership</span><span class="tag">Problem Solving</span><span class="tag">Time Management</span>
+          <span class="tag">Multitasking</span><span class="tag">Team Collaboration</span><span class="tag">Adaptability</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-label">Work</div>
+  <h2 class="section-title">Featured Projects</h2>
+  <div class="projects-grid">
+    <div class="project-card">
+      <div>
+        <div class="project-num">01</div>
+        <div class="project-title">Shield Insurance Analysis</div>
+        <div class="project-stack">Power BI · DAX · Data Visualization · KPI Analytics</div>
+        <p class="project-desc">A sales & performance analytics dashboard tracking revenue, customer acquisition, and policy performance. Enables dynamic filtering by month, city, age group, and sales mode with conditional KPI formatting. Analyzes customer segments and sales channels to surface actionable business insights.</p>
+        <div class="project-links">
+          <a href="https://app.powerbi.com/view?r=eyJrIjoiMmU1NWY3MTEtNjY4MC00NWUxLWJmMGEtMzlkMmY5NGRhZjBhIiwidCI6ImM2ZTU0OWIzLTVmNDUtNDAzMi1hYWU5LWQ0MjQ0ZGM1YjJjNCJ9" target="_blank" class="project-link">Live Dashboard ↗</a>
+          <a href="https://github.com/Riya-1799/Shield-Insurance-Analysis" target="_blank" class="project-link">GitHub ↗</a>
+          <a href="https://docs.google.com/presentation/d/1G_gdcum9J9te1xs9ywdOAu_wJ6vA021u/edit" target="_blank" class="project-link">Presentation ↗</a>
+        </div>
+      </div>
+      <div class="project-badge">Power BI</div>
+    </div>
+    <div class="project-card">
+      <div>
+        <div class="project-num">02</div>
+        <div class="project-title">BI 360 — Business Intelligence Dashboard</div>
+        <div class="project-stack">Power BI · Large Dataset · Multi-Department Analytics</div>
+        <p class="project-desc">A centralized BI dashboard processing 1M+ records across Finance, Sales, Marketing, Supply Chain, and Executive functions. Features drill-down capabilities, trend forecasting, and multi-source data integration to support enterprise-level strategic decisions.</p>
+        <div class="project-links">
+          <a href="https://app.powerbi.com/view?r=eyJrIjoiM2NjZTNlMzItNGMwOC00ZTYyLWJkNmItYTYzNDg1ODM4ZWE3IiwidCI6ImM2ZTU0OWIzLTVmNDUtNDAzMi1hYWU5LWQ0MjQ0ZGM1YjJjNCJ9" target="_blank" class="project-link">Live Dashboard ↗</a>
+          <a href="https://github.com/Riya-1799" target="_blank" class="project-link">GitHub ↗</a>
+        </div>
+      </div>
+      <div class="project-badge">Power BI</div>
+    </div>
+    <div class="project-card">
+      <div>
+        <div class="project-num">03</div>
+        <div class="project-title">E-Commerce Backend Application</div>
+        <div class="project-stack">Java · Spring Boot · Hibernate · MySQL · Spring Security · SMTP</div>
+        <p class="project-desc">A full backend system for product, order, and user management. Built REST APIs for system integration, designed relational database schemas, and implemented JWT authentication, secure login, and SMTP-based email verification.</p>
+        <div class="project-links">
+          <a href="https://github.com/Riya-1799/Ecommerce-Web-Application" target="_blank" class="project-link">GitHub ↗</a>
+        </div>
+      </div>
+      <div class="project-badge">Java</div>
+    </div>
+    <div class="project-card">
+      <div>
+        <div class="project-num">04</div>
+        <div class="project-title">Smart Contact Manager</div>
+        <div class="project-stack">Spring Boot · Thymeleaf · Bootstrap · SQL · Spring Security</div>
+        <p class="project-desc">A secure web application enabling users to manage contacts with full CRUD operations, relational database integration, and role-based authentication and authorization for safe user access.</p>
+        <div class="project-links">
+          <a href="https://github.com/Riya-1799/Smart-Contact-Manager" target="_blank" class="project-link">GitHub ↗</a>
+        </div>
+      </div>
+      <div class="project-badge">Spring Boot</div>
+    </div>
+  </div>
+</section>
+ 
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-label">Career</div>
+  <h2 class="section-title">Experience</h2>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-date">Jul 2025 – Present</div>
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <h4>Team Lead</h4>
+        <div class="company">Dollarama · London, ON · Full-time</div>
+        <ul>
+          <li>Led and supervised store associates with daily training, guidance, and performance monitoring</li>
+          <li>Drove sales through strategic upselling and product recommendations tailored to customer needs</li>
+          <li>Managed store operations including cash handling, opening/closing procedures, and store standards</li>
+          <li>Monitored inventory and merchandise; ensured product availability and visual appeal</li>
+        </ul>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">Oct 2024 – Jun 2025</div>
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <h4>Assistant Team Lead</h4>
+        <div class="company">Dollarama · Toronto, ON · Full-time</div>
+        <ul>
+          <li>Supported team coordination and daily operations alongside the team lead</li>
+          <li>Resolved customer complaints and ensured a consistently positive shopping experience</li>
+        </ul>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">Sep 2023 – Sep 2024</div>
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <h4>Sales Associate</h4>
+        <div class="company">Dollarama · Toronto, ON · Full-time</div>
+        <ul>
+          <li>Delivered excellent customer service in a high-volume retail environment</li>
+          <li>Consistently contributed to meeting store sales targets and KPIs</li>
+        </ul>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">Apr 2022 – Nov 2022</div>
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <h4>Team Member</h4>
+        <div class="company">Tim Hortons · Toronto, ON · Part-time</div>
+        <ul>
+          <li>Handled high-volume transactions with accuracy and efficiency in a fast-paced environment</li>
+          <li>Collaborated with teammates to ensure smooth daily operations and customer satisfaction</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- CERTIFICATIONS -->
+<section style="padding-top:0; max-width:1280px; margin:0 auto; padding-left:10vw; padding-right:10vw; padding-bottom:96px;">
+  <div class="section-label">Learning</div>
+  <h2 class="section-title">Certifications</h2>
+  <div class="cert-grid">
+    <div class="cert-card"><div class="cert-icon">📊</div><div class="cert-name">Data Analysis Bootcamp & Virtual Internship</div><div class="cert-issuer">Codebasics</div></div>
+    <div class="cert-card"><div class="cert-icon">🔬</div><div class="cert-name">IBM Data Science Specialization</div><div class="cert-issuer">IBM · Coursera</div></div>
+    <div class="cert-card"><div class="cert-icon">☁️</div><div class="cert-name">Architecting with Google Compute Engine</div><div class="cert-issuer">Google · Coursera</div></div>
+    <div class="cert-card"><div class="cert-icon">🐍</div><div class="cert-name">Python for Everybody</div><div class="cert-issuer">University of Michigan · Coursera</div></div>
+    <div class="cert-card"><div class="cert-icon">🤖</div><div class="cert-name">IBM Machine Learning</div><div class="cert-issuer">IBM · Coursera</div></div>
+  </div>
+</section>
+ 
+<!-- CONTACT -->
+<div id="contact">
+  <div class="contact-inner">
+    <div class="contact-grid">
+      <div class="contact-text">
+        <div class="section-label">Let's Connect</div>
+        <h3>Open to New Opportunities</h3>
+        <p>I'm actively looking for roles in Technical Sales, BDR/SDR, or SaaS. If you think we'd be a great fit, I'd love to hear from you.</p>
+      </div>
+      <div class="contact-info">
+        <a href="mailto:riyaarvadia228@gmail.com" class="contact-item">
+          <span class="ci-icon">✉️</span>
+          <div><div class="ci-label">Email</div><div class="ci-value">riyaarvadia228@gmail.com</div></div>
+        </a>
+        <a href="tel:+16478713858" class="contact-item">
+          <span class="ci-icon">📞</span>
+          <div><div class="ci-label">Phone</div><div class="ci-value">+1-647-871-3858</div></div>
+        </a>
+        <a href="https://www.linkedin.com/in/riyaa-m/" target="_blank" class="contact-item">
+          <span class="ci-icon">💼</span>
+          <div><div class="ci-label">LinkedIn</div><div class="ci-value">linkedin.com/in/riyaa-m</div></div>
+        </a>
+        <a href="https://github.com/Riya-1799" target="_blank" class="contact-item">
+          <span class="ci-icon">🐙</span>
+          <div><div class="ci-label">GitHub</div><div class="ci-value">github.com/Riya-1799</div></div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+<footer>
+  Designed with care · <span>Riya Arvadia</span> · 2025
+</footer>
+ 
+</body>
+</html>
