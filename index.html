@@ -67,6 +67,85 @@
   .skill-group h4 { font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent2); margin-bottom: 16px; }
   .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
   .tag { background: rgba(123,140,222,0.08); color: var(--text); padding: 4px 12px; border-radius: 2px; font-size: 0.8rem; border: 1px solid rgba(123,140,222,0.15); }
+
+   /* ─── SALES CYCLE ─── */
+  #sales-cycle { background: var(--surface); max-width: 100%; padding: 96px 10vw; }
+  .sales-inner { max-width: 1280px; margin: 0 auto; }
+ 
+  .sc-pipeline {
+    display: flex; align-items: flex-start; justify-content: center;
+    flex-wrap: nowrap; gap: 0; overflow-x: auto;
+    padding-bottom: 8px;
+  }
+ 
+  .sc-stage {
+    display: flex; flex-direction: column; align-items: center;
+    cursor: default; position: relative;
+    transition: transform 0.22s ease; flex-shrink: 0;
+    min-width: 90px;
+  }
+  .sc-stage:hover { transform: translateY(-8px); }
+  .sc-stage:hover .sc-icon { box-shadow: 0 0 30px var(--glow); }
+ 
+  .sc-connector {
+    width: 22px; height: 3px;
+    background: linear-gradient(90deg, var(--from), var(--to));
+    flex-shrink: 0; margin-top: 36px; border-radius: 2px; opacity: 0.5;
+  }
+ 
+  .sc-icon {
+    width: 72px; height: 72px; border-radius: 50%;
+    background: var(--ibg);
+    border: 2.5px solid var(--clr);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 26px;
+    box-shadow: 0 0 14px var(--glow);
+    transition: box-shadow 0.3s;
+    position: relative; z-index: 2;
+  }
+ 
+  .sc-badge {
+    position: absolute; top: -5px; right: -5px;
+    background: var(--clr); color: #fff;
+    font-size: 9px; font-weight: 800;
+    width: 20px; height: 20px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; z-index: 3;
+  }
+ 
+  .sc-label {
+    color: var(--text); font-size: 10px; font-weight: 700;
+    letter-spacing: 1.2px; text-transform: uppercase; margin-top: 10px; text-align: center;
+  }
+  .sc-sub { color: var(--clr); font-size: 8.5px; margin-top: 2px; font-weight: 500; text-align: center; opacity: 0.85; }
+ 
+  .sc-bar-wrap { margin-top: 7px; width: 56px; height: 4px; background: rgba(255,255,255,0.08); border-radius: 4px; overflow: hidden; }
+  .sc-bar-fill { height: 100%; border-radius: 4px; background: var(--clr); width: var(--pct); }
+ 
+  /* Tooltip */
+  .sc-tip {
+    position: absolute; bottom: 112%; left: 50%;
+    transform: translateX(-50%) scale(0.9);
+    background: var(--card); border: 1px solid var(--clr);
+    border-radius: 10px; padding: 8px 12px; width: 120px;
+    pointer-events: none; opacity: 0;
+    transition: opacity 0.2s, transform 0.2s; z-index: 10;
+  }
+  .sc-stage:hover .sc-tip { opacity: 1; transform: translateX(-50%) scale(1); }
+  .sc-tip p { color: var(--muted); font-size: 9px; line-height: 1.6; text-align: center; }
+ 
+  /* Funnel */
+  .sc-funnel { margin-top: 56px; }
+  .sc-funnel-title { font-size: 0.72rem; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); margin-bottom: 24px; text-align: center; }
+  .sc-funnel-row { display: flex; gap: 8px; align-items: flex-end; justify-content: center; }
+  .sc-fcol { display: flex; flex-direction: column; align-items: center; }
+  .sc-fbar {
+    width: 54px; border-radius: 5px 5px 0 0;
+    background: var(--fc); opacity: 0.65;
+    position: relative; transition: opacity 0.25s;
+  }
+  .sc-fbar:hover { opacity: 1; }
+  .sc-fcount { position: absolute; top: -19px; width: 100%; text-align: center; color: var(--text); font-size: 9px; font-weight: 700; }
+  .sc-flabel { color: var(--muted); font-size: 7px; text-align: center; margin-top: 5px; letter-spacing: 0.7px; text-transform: uppercase; }
  
   /* TOOLS */
   #tools { max-width: 100%; padding: 96px 10vw; }
@@ -171,6 +250,7 @@
     <li><a href="#about">About</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#projects">Projects</a></li>
+    <li><a href="#sales-cycle">Sales Process</a></li>
     <li><a href="#tools">Tools</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -195,27 +275,26 @@
   <h2 class="section-title">Where Technology<br/>Meets Business Impact</h2>
   <div class="about-grid">
     <div class="about-text">
-      <p>I'm a <strong>tech-savvy, customer-focused professional</strong> based in London, ON, with a background in Computer Engineering and hands-on experience spanning sales, data analytics, and team leadership.</p>
-      <p>I bring a rare combination: the ability to <strong>understand complex technical products deeply</strong> and communicate their value clearly to customers and stakeholders. Whether I'm building a Power BI dashboard to surface business insights or leading a team through a high-volume environment, I lead with data and people skills.</p>
-      <p>My analytics work — from KPI dashboards tracking 1M+ records to multi-department BI tools — gives me a <strong>data-driven edge in sales</strong>. I use insights to identify opportunities, sharpen targeting, and drive conversions.</p>
-      <p>I'm actively pursuing roles in <strong>Technical Sales, BDR/SDR, or SaaS</strong> where I can bridge the gap between technology and business growth.</p>
+      <p>Tech-savvy professional with a background in <strong>Computer Engineering</strong> and hands-on experience in sales, data analytics, and team leadership.</p>
+      <p>I bridge the gap between complex technical products and real business value — using <strong>Power BI dashboards, SQL, and sales instincts</strong> to drive conversions.</p>
+      <p>Actively pursuing roles in <strong>Technical Sales, BDR/SDR, or SaaS</strong>.</p>
     </div>
     <div>
       <div class="highlight-card">
         <h4>🎓 Education</h4>
-        <p>Computer Systems Software Engineering — George Brown College, Toronto<br/>B.E. Computer Engineering — Gujarat Technological University, India</p>
+        <p>Computer Systems Software Engineering — George Brown College<br/>B.E. Computer Engineering — GTU, India</p>
       </div>
       <div class="highlight-card">
         <h4>📍 Location</h4>
-        <p>London, Ontario, Canada · Open to remote, hybrid & relocation</p>
+        <p>London, ON · Open to remote, hybrid & relocation</p>
       </div>
       <div class="highlight-card">
-        <h4>💡 What I Bring</h4>
-        <p>Data analytics + sales instincts + technical depth — a rare combination that turns insights into revenue.</p>
+        <h4>💡 Superpower</h4>
+        <p>Data analytics + sales instincts + technical depth → revenue.</p>
       </div>
       <div class="highlight-card">
         <h4>📬 Contact</h4>
-        <p>·riyaarvadia228@gmail.com · +1-647-871-3858</p>
+        <p>riyaarvadia228@gmail.com · +1-647-871-3858</p>
       </div>
     </div>
   </div>
@@ -272,63 +351,165 @@
     </div>
   </div>
 </div>
+
+<!-- ─── SALES DEVELOPMENT CYCLE ─── -->
+<div id="sales-cycle">
+  <div class="sales-inner">
+    <div class="section-label">Methodology</div>
+    <h2 class="section-title">My Sales Development Process</h2>
+ 
+    <div class="sc-pipeline">
+ 
+      <div class="sc-stage" style="--clr:#3b82f6;--ibg:rgba(59,130,246,0.1);--glow:rgba(59,130,246,0.45);">
+        <div class="sc-tip"><p>Identify & research ideal customer profiles using data signals</p></div>
+        <div class="sc-icon"><span class="sc-badge">1</span>🔍</div>
+        <div class="sc-label">Prospect</div>
+        <div class="sc-sub">ICP Targeting</div>
+        <div class="sc-bar-wrap"><div class="sc-bar-fill" style="--pct:100%;"></div></div>
+      </div>
+ 
+      <div class="sc-connector" style="--from:#3b82f6;--to:#8b5cf6;"></div>
+ 
+      <div class="sc-stage" style="--clr:#8b5cf6;--ibg:rgba(139,92,246,0.1);--glow:rgba(139,92,246,0.45);">
+        <div class="sc-tip"><p>Cold calls, emails & LinkedIn — multi-touch cadence</p></div>
+        <div class="sc-icon"><span class="sc-badge">2</span>📡</div>
+        <div class="sc-label">Outreach</div>
+        <div class="sc-sub">Multi-Channel</div>
+        <div class="sc-bar-wrap"><div class="sc-bar-fill" style="--pct:82%;"></div></div>
+      </div>
+ 
+      <div class="sc-connector" style="--from:#8b5cf6;--to:#06b6d4;"></div>
+ 
+      <div class="sc-stage" style="--clr:#06b6d4;--ibg:rgba(6,182,212,0.1);--glow:rgba(6,182,212,0.45);">
+        <div class="sc-tip"><p>BANT / MEDDIC scoring — filter real buyers</p></div>
+        <div class="sc-icon"><span class="sc-badge">3</span>⚡</div>
+        <div class="sc-label">Qualify</div>
+        <div class="sc-sub">BANT / MEDDIC</div>
+        <div class="sc-bar-wrap"><div class="sc-bar-fill" style="--pct:65%;"></div></div>
+      </div>
+ 
+      <div class="sc-connector" style="--from:#06b6d4;--to:#10b981;"></div>
+ 
+      <div class="sc-stage" style="--clr:#10b981;--ibg:rgba(16,185,129,0.1);--glow:rgba(16,185,129,0.45);">
+        <div class="sc-tip"><p>Deep-dive calls — uncover pain, timeline & stakeholders</p></div>
+        <div class="sc-icon"><span class="sc-badge">4</span>🎙️</div>
+        <div class="sc-label">Discovery</div>
+        <div class="sc-sub">Pain & Fit</div>
+        <div class="sc-bar-wrap"><div class="sc-bar-fill" style="--pct:50%;"></div></div>
+      </div>
+ 
+      <div class="sc-connector" style="--from:#10b981;--to:#f59e0b;"></div>
+ 
+      <div class="sc-stage" style="--clr:#f59e0b;--ibg:rgba(245,158,11,0.1);--glow:rgba(245,158,11,0.45);">
+        <div class="sc-tip"><p>Tailored demo connecting features to their problems</p></div>
+        <div class="sc-icon"><span class="sc-badge">5</span>🖥️</div>
+        <div class="sc-label">Demo</div>
+        <div class="sc-sub">Value Pitch</div>
+        <div class="sc-bar-wrap"><div class="sc-bar-fill" style="--pct:38%;"></div></div>
+      </div>
+ 
+      <div class="sc-connector" style="--from:#f59e0b;--to:#ef4444;"></div>
+ 
+      <div class="sc-stage" style="--clr:#ef4444;--ibg:rgba(239,68,68,0.1);--glow:rgba(239,68,68,0.45);">
+        <div class="sc-tip"><p>Send pricing, SOW & tailored proposal to champion</p></div>
+        <div class="sc-icon"><span class="sc-badge">6</span>📋</div>
+        <div class="sc-label">Proposal</div>
+        <div class="sc-sub">Pricing & SOW</div>
+        <div class="sc-bar-wrap"><div class="sc-bar-fill" style="--pct:28%;"></div></div>
+      </div>
+ 
+      <div class="sc-connector" style="--from:#ef4444;--to:#f97316;"></div>
+ 
+      <div class="sc-stage" style="--clr:#f97316;--ibg:rgba(249,115,22,0.1);--glow:rgba(249,115,22,0.45);">
+        <div class="sc-tip"><p>Handle objections, legal review & contract terms</p></div>
+        <div class="sc-icon"><span class="sc-badge">7</span>🤝</div>
+        <div class="sc-label">Negotiate</div>
+        <div class="sc-sub">Objections</div>
+        <div class="sc-bar-wrap"><div class="sc-bar-fill" style="--pct:18%;"></div></div>
+      </div>
+ 
+      <div class="sc-connector" style="--from:#f97316;--to:#22c55e;"></div>
+ 
+      <div class="sc-stage" style="--clr:#22c55e;--ibg:rgba(34,197,94,0.1);--glow:rgba(34,197,94,0.55);">
+        <div class="sc-tip"><p>Contract signed — hand off to CS & celebrate 🎉</p></div>
+        <div class="sc-icon"><span class="sc-badge">8</span>🏆</div>
+        <div class="sc-label">Close</div>
+        <div class="sc-sub">Signed ✓</div>
+        <div class="sc-bar-wrap"><div class="sc-bar-fill" style="--pct:10%;"></div></div>
+      </div>
+ 
+    </div>
+ 
+    <!-- Funnel -->
+    <div class="sc-funnel">
+      <div class="sc-funnel-title">Conversion Funnel</div>
+      <div class="sc-funnel-row">
+        <div class="sc-fcol"><div class="sc-fbar" style="height:100px;--fc:#3b82f6;"><span class="sc-fcount">1000</span></div><div class="sc-flabel">Leads</div></div>
+        <div class="sc-fcol"><div class="sc-fbar" style="height:82px;--fc:#8b5cf6;"><span class="sc-fcount">820</span></div><div class="sc-flabel">Touched</div></div>
+        <div class="sc-fcol"><div class="sc-fbar" style="height:65px;--fc:#06b6d4;"><span class="sc-fcount">450</span></div><div class="sc-flabel">Qualified</div></div>
+        <div class="sc-fcol"><div class="sc-fbar" style="height:50px;--fc:#10b981;"><span class="sc-fcount">280</span></div><div class="sc-flabel">Discovery</div></div>
+        <div class="sc-fcol"><div class="sc-fbar" style="height:38px;--fc:#f59e0b;"><span class="sc-fcount">160</span></div><div class="sc-flabel">Demo</div></div>
+        <div class="sc-fcol"><div class="sc-fbar" style="height:28px;--fc:#ef4444;"><span class="sc-fcount">90</span></div><div class="sc-flabel">Proposal</div></div>
+        <div class="sc-fcol"><div class="sc-fbar" style="height:18px;--fc:#f97316;"><span class="sc-fcount">45</span></div><div class="sc-flabel">Negotiate</div></div>
+        <div class="sc-fcol"><div class="sc-fbar" style="height:10px;--fc:#22c55e;"><span class="sc-fcount">22</span></div><div class="sc-flabel">Closed</div></div>
+      </div>
+    </div>
+  </div>
+</div>
  
 <!-- PROJECTS -->
 <section id="projects">
   <div class="section-label">Work</div>
   <h2 class="section-title">Featured Projects</h2>
   <div class="projects-grid">
-    <div class="project-card">
-      <div>
-        <div class="project-num">01</div>
-        <div class="project-title">Shield Insurance Analysis</div>
-        <div class="project-stack">Power BI · DAX · Data Visualization · KPI Analytics</div>
-        <p class="project-desc">A sales & performance analytics dashboard tracking revenue, customer acquisition, and policy performance. Enables dynamic filtering by month, city, age group, and sales mode with conditional KPI formatting. Analyzes customer segments and sales channels to surface actionable business insights.</p>
-        <div class="project-links">
-          <a href="https://app.powerbi.com/view?r=eyJrIjoiMmU1NWY3MTEtNjY4MC00NWUxLWJmMGEtMzlkMmY5NGRhZjBhIiwidCI6ImM2ZTU0OWIzLTVmNDUtNDAzMi1hYWU5LWQ0MjQ0ZGM1YjJjNCJ9" target="_blank" class="project-link">Live Dashboard ↗</a>
-          <a href="https://github.com/Riya-1799/Shield-Insurance-Analysis" target="_blank" class="project-link">GitHub ↗</a>
-          <a href="https://docs.google.com/presentation/d/1G_gdcum9J9te1xs9ywdOAu_wJ6vA021u/edit" target="_blank" class="project-link">Presentation ↗</a>
-        </div>
-      </div>
+ 
+    <div class="project-card" style="--stripe:#3b82f6;">
+      <div class="project-num">01</div>
       <div class="project-badge">Power BI</div>
-    </div>
-    <div class="project-card">
-      <div>
-        <div class="project-num">02</div>
-        <div class="project-title">BI 360 — Business Intelligence Dashboard</div>
-        <div class="project-stack">Power BI · Large Dataset · Multi-Department Analytics</div>
-        <p class="project-desc">A centralized BI dashboard processing 1M+ records across Finance, Sales, Marketing, Supply Chain, and Executive functions. Features drill-down capabilities, trend forecasting, and multi-source data integration to support enterprise-level strategic decisions.</p>
-        <div class="project-links">
-          <a href="https://app.powerbi.com/view?r=eyJrIjoiM2NjZTNlMzItNGMwOC00ZTYyLWJkNmItYTYzNDg1ODM4ZWE3IiwidCI6ImM2ZTU0OWIzLTVmNDUtNDAzMi1hYWU5LWQ0MjQ0ZGM1YjJjNCJ9" target="_blank" class="project-link">Live Dashboard ↗</a>
-          <a href="https://github.com/Riya-1799" target="_blank" class="project-link">GitHub ↗</a>
-        </div>
+      <div class="project-title">Shield Insurance Analysis</div>
+      <div class="project-stack">Power BI · DAX · KPI Analytics</div>
+       <p class="project-desc">A dynamic sales and performance dashboard tracking revenue, customer acquisition, and policy insights with interactive filters and KPI-driven analysis for actionable business decisions.</p>
+      <div class="project-links">
+        <a href="https://app.powerbi.com/view?r=eyJrIjoiMmU1NWY3MTEtNjY4MC00NWUxLWJmMGEtMzlkMmY5NGRhZjBhIiwidCI6ImM2ZTU0OWIzLTVmNDUtNDAzMi1hYWU5LWQ0MjQ0ZGM1YjJjNCJ9" target="_blank" class="project-link">Live ↗</a>
+        <a href="https://github.com/Riya-1799/Shield-Insurance-Analysis" target="_blank" class="project-link">GitHub ↗</a>
+        <a href="https://docs.google.com/presentation/d/1G_gdcum9J9te1xs9ywdOAu_wJ6vA021u/edit" target="_blank" class="project-link">Deck ↗</a>
       </div>
+    </div>
+ 
+    <div class="project-card" style="--stripe:#8b5cf6;">
+      <div class="project-num">02</div>
       <div class="project-badge">Power BI</div>
-    </div>
-    <div class="project-card">
-      <div>
-        <div class="project-num">03</div>
-        <div class="project-title">E-Commerce Backend Application</div>
-        <div class="project-stack">Java · Spring Boot · Hibernate · MySQL · Spring Security · SMTP</div>
-        <p class="project-desc">A full backend system for product, order, and user management. Built REST APIs for system integration, designed relational database schemas, and implemented JWT authentication, secure login, and SMTP-based email verification.</p>
-        <div class="project-links">
-          <a href="https://github.com/Riya-1799/Ecommerce-Web-Application" target="_blank" class="project-link">GitHub ↗</a>
-        </div>
+      <div class="project-title">BI 360 Dashboard</div>
+      <div class="project-stack">Power BI · Large Dataset · Multi-Department Analytics</div>
+        <p class="project-desc">A centralized BI dashboard analyzing 1M+ records with drill-down insights, trend forecasting, and multi-source integration to drive enterprise-level decision-making.</p>
+      <div class="project-links">
+        <a href="https://app.powerbi.com/view?r=eyJrIjoiM2NjZTNlMzItNGMwOC00ZTYyLWJkNmItYTYzNDg1ODM4ZWE3IiwidCI6ImM2ZTU0OWIzLTVmNDUtNDAzMi1hYWU5LWQ0MjQ0ZGM1YjJjNCJ9" target="_blank" class="project-link">Live ↗</a>
+        <a href="https://github.com/Riya-1799" target="_blank" class="project-link">GitHub ↗</a>
       </div>
+    </div>
+ 
+    <div class="project-card" style="--stripe:#10b981;">
+      <div class="project-num">03</div>
       <div class="project-badge">Java</div>
-    </div>
-    <div class="project-card">
-      <div>
-        <div class="project-num">04</div>
-        <div class="project-title">Smart Contact Manager</div>
-        <div class="project-stack">Spring Boot · Thymeleaf · Bootstrap · SQL · Spring Security</div>
-        <p class="project-desc">A secure web application enabling users to manage contacts with full CRUD operations, relational database integration, and role-based authentication and authorization for safe user access.</p>
-        <div class="project-links">
-          <a href="https://github.com/Riya-1799/Smart-Contact-Manager" target="_blank" class="project-link">GitHub ↗</a>
-        </div>
+      <div class="project-title">E-Commerce Backend</div>
+      <div class="project-stack">Spring Boot · Hibernate · MySQL · JWT</div>
+      <p class="project-desc">A secure backend system with REST APIs for product, order, and user management, featuring JWT authentication, email verification, and robust database design for seamless integration.</p>
+      <div class="project-links">
+        <a href="https://github.com/Riya-1799/Ecommerce-Web-Application" target="_blank" class="project-link">GitHub ↗</a>
       </div>
-      <div class="project-badge">Spring Boot</div>
     </div>
+ 
+    <div class="project-card" style="--stripe:#f59e0b;">
+      <div class="project-num">04</div>
+      <div class="project-badge">Spring Boot</div>
+      <div class="project-title">Smart Contact Manager</div>
+      <div class="project-stack">Spring Boot · Thymeleaf · Spring Security</div>
+      <p class="project-desc">A secure web application enabling users to manage contacts with full CRUD operations, relational database integration, and role-based authentication and authorization for safe user access.</p>
+      <div class="project-links">
+        <a href="https://github.com/Riya-1799/Smart-Contact-Manager" target="_blank" class="project-link">GitHub ↗</a>
+      </div>
+    </div>
+ 
   </div>
 </section>
  
