@@ -14,7 +14,7 @@
   }
   html { scroll-behavior: smooth; }
   body { background: var(--bg); color: var(--text); font-family: var(--body); font-size: 15px; line-height: 1.7; overflow-x: hidden; }
- 
+
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
@@ -26,9 +26,9 @@
   .nav-links { display: flex; gap: 32px; list-style: none; }
   .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s; }
   .nav-links a:hover { color: var(--accent); }
- 
+
   section { padding: 96px 10vw; max-width: 1280px; margin: 0 auto; }
- 
+
   #hero {
     min-height: 100vh; display: flex; flex-direction: column; justify-content: center;
     padding: 120px 10vw 80px; max-width: 100%; position: relative;
@@ -45,10 +45,10 @@
   .btn-primary:hover { background: #d9bb85; transform: translateY(-2px); }
   .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); }
   .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
- 
+
   .section-label { font-size: 0.75rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
   .section-title { font-family: var(--heading); font-size: clamp(2rem,4vw,3rem); color: var(--text); margin-bottom: 48px; line-height: 1.2; }
- 
+
   /* ABOUT */
   .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
   .about-text p { color: var(--muted); margin-bottom: 20px; font-size: 0.97rem; }
@@ -57,7 +57,7 @@
   .highlight-card:hover { transform: translateX(4px); }
   .highlight-card h4 { font-size: 0.82rem; color: var(--accent); letter-spacing: 0.06em; margin-bottom: 6px; }
   .highlight-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.5; }
- 
+
   /* SKILLS */
   #skills { background: var(--surface); max-width: 100%; padding: 96px 10vw; }
   .skills-inner { max-width: 1280px; margin: 0 auto; }
@@ -67,7 +67,7 @@
   .skill-group h4 { font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent2); margin-bottom: 16px; }
   .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
   .tag { background: rgba(123,140,222,0.08); color: var(--text); padding: 4px 12px; border-radius: 2px; font-size: 0.8rem; border: 1px solid rgba(123,140,222,0.15); }
- 
+
   /* TOOLS */
   #tools { max-width: 100%; padding: 96px 10vw; }
   .tools-inner { max-width: 1280px; margin: 0 auto; }
@@ -94,7 +94,7 @@
   .tool-chip img { width: 22px; height: 22px; object-fit: contain; }
   .tool-chip .tool-logo-svg { width: 22px; height: 22px; flex-shrink: 0; }
   .tool-chip span { font-size: 0.88rem; color: var(--text); white-space: nowrap; }
- 
+
   /* PROJECTS */
   .projects-grid { display: flex; flex-direction: column; gap: 28px; }
   .project-card { background: var(--card); border: 1px solid var(--border); border-radius: 4px; padding: 36px 40px; display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: start; transition: border-color 0.25s, transform 0.25s; }
@@ -107,7 +107,7 @@
   .project-link { font-size: 0.78rem; color: var(--accent); text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase; border-bottom: 1px solid rgba(200,169,110,0.3); padding-bottom: 2px; transition: border-color 0.2s; }
   .project-link:hover { border-color: var(--accent); }
   .project-badge { background: rgba(200,169,110,0.1); color: var(--accent); padding: 6px 14px; border-radius: 2px; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; white-space: nowrap; height: fit-content; border: 1px solid rgba(200,169,110,0.2); }
- 
+
   /* DASHBOARD PREVIEW */
   .dash-preview {
     display: block; border-radius: 8px; overflow: hidden;
@@ -167,7 +167,7 @@
   }
   .dash-preview:hover .dash-overlay { background: rgba(13,15,20,0.6); }
   .dash-preview:hover .dash-overlay span { opacity: 1; transform: translateY(0); }
- 
+
   /* EXPERIENCE */
   .timeline { display: flex; flex-direction: column; }
   .timeline-item { display: grid; grid-template-columns: 180px 1fr; gap: 32px; position: relative; padding-bottom: 40px; }
@@ -180,7 +180,7 @@
   .timeline-content ul { list-style: none; padding: 0; }
   .timeline-content ul li { font-size: 0.88rem; color: var(--muted); padding: 3px 0 3px 16px; position: relative; }
   .timeline-content ul li::before { content: '—'; position: absolute; left: 0; color: var(--accent2); font-size: 0.7rem; }
- 
+
   /* CERTS */
   .cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
   .cert-card { background: var(--card); border: 1px solid var(--border); padding: 24px; border-radius: 4px; transition: border-color 0.2s; }
@@ -188,7 +188,7 @@
   .cert-icon { font-size: 1.5rem; margin-bottom: 12px; }
   .cert-name { font-size: 0.9rem; color: var(--text); font-weight: 500; margin-bottom: 6px; }
   .cert-issuer { font-size: 0.8rem; color: var(--accent2); }
- 
+
   /* CONTACT */
   #contact { background: var(--surface); max-width: 100%; padding: 96px 10vw; }
   .contact-inner { max-width: 1280px; margin: 0 auto; }
@@ -201,16 +201,16 @@
   .ci-icon { font-size: 1.2rem; }
   .ci-label { font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
   .ci-value { font-size: 0.92rem; }
- 
+
   footer { text-align: center; padding: 32px; border-top: 1px solid var(--border); font-size: 0.8rem; color: var(--muted); }
   footer span { color: var(--accent); }
- 
+
   @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
   .hero-eyebrow { animation: fadeUp 0.6s ease both; }
   .hero-name { animation: fadeUp 0.7s 0.1s ease both; }
   .hero-sub { animation: fadeUp 0.7s 0.2s ease both; }
   .cta-group { animation: fadeUp 0.7s 0.3s ease both; }
- 
+
   @media (max-width: 768px) {
     nav { padding: 16px 20px; } .nav-links { display: none; }
     section, #skills, #contact { padding: 64px 24px; }
@@ -224,19 +224,19 @@
 </style>
 </head>
 <body>
- 
+
 <nav>
   <div class="nav-logo">Riya Arvadia</div>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#skills">Skills</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#tools">Tools</a></li>
     <li><a href="#experience">Experience</a></li>
+    <li><a href="#tools">Tools</a></li>
+    <li><a href="#projects">Projects</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
- 
+
 <!-- HERO -->
 <div id="hero">
   <div class="hero-bg">RA</div>
@@ -248,7 +248,7 @@
     <a href="#contact" class="btn btn-outline">Get In Touch</a>
   </div>
 </div>
- 
+
 <!-- ABOUT -->
 <section id="about">
   <div class="section-label">About Me</div>
@@ -280,7 +280,7 @@
     </div>
   </div>
 </section>
- 
+
 <!-- SKILLS -->
 <div id="skills">
   <div class="skills-inner">
@@ -338,13 +338,88 @@
     </div>
   </div>
 </div>
- 
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-label">Career</div>
+  <h2 class="section-title">Experience</h2>
+  <div class="timeline">
+
+    <div class="timeline-item">
+      <div class="timeline-date">Jul 2024 – Present</div>
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <h4>Operations Analyst (Remote)</h4>
+        <div class="company">Dollarama · London, ON · Canada's leading value retailer, 1,500+ stores</div>
+        <ul>
+          <li>Analyze retail sales, transaction, product, pricing, and inventory data across 500+ SKUs to identify trends, anomalies, discrepancies, and operational opportunities</li>
+          <li>Develop and maintain Excel and Power BI reports tracking sales, revenue, inventory-related KPIs, product performance, and operational metrics for management decision-making</li>
+          <li>Perform data validation, reconciliation, and quality checks to identify unusual patterns and discrepancies, investigate root causes, and maintain accurate reporting</li>
+          <li>Investigate data mismatches and operational reporting issues through source-data analysis and structured troubleshooting, coordinating with stakeholders to resolve issues</li>
+          <li>Analyze transactional data using SQL (joins, CTEs, window functions) to identify trends, exceptions, and performance patterns across 100K+ records</li>
+          <li>Automate 10+ recurring reports using Excel and Power Query, reducing manual reporting effort by approximately one workday per week and improving reporting consistency</li>
+          <li>Conduct ad hoc analysis to investigate business questions, identify operational issues, and provide actionable insights to management</li>
+          <li>Collaborate with sales, finance, operations, and vendor stakeholders to gather information, clarify business needs, communicate findings, and support process improvements</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-date">Apr 2023 – Sep 2023</div>
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <h4>Data Analyst Intern</h4>
+        <div class="company">AtliQ Technologies · Internship</div>
+        <ul>
+          <li>Performed data analysis and trend identification, improving reporting accuracy by 20% through structured classification and data validation & reconciliation workflows</li>
+          <li>Created and maintained Power BI visualizations and reports, enhancing data visibility and reducing analysis time by 25% using integrity-focused metric definitions</li>
+          <li>Collaborated with stakeholders to gather requirements and deliver data-driven solutions, improving reporting efficiency by 15% by translating business needs into measurable KPIs</li>
+          <li>Conducted data cleaning and preprocessing, ensuring high data consistency and significantly reducing data errors across reporting systems</li>
+          <li>Monitored data quality, resolved discrepancies, and reinforced data governance expectations; supported ETL processes, improving data processing efficiency and reducing report generation delays</li>
+          <li>Enhanced reporting workflows by identifying inefficiencies and implementing improvements, increasing team productivity by 30% through relational database-style organization using data warehousing concepts</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-date">Sep 2020 – Aug 2021</div>
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <h4>Pricing Analyst — Retail Data Analytics</h4>
+        <div class="company">OrbitWebTech · India (Remote)</div>
+        <ul>
+          <li>Analyzed sales, pricing, and product performance data across 500+ SKUs using SQL, Excel, and Power BI to identify pricing opportunities and support price optimization</li>
+          <li>Developed 6–8 interactive Power BI dashboards with Power Query and DAX to monitor retail KPIs including revenue growth, gross margin, ASP, and inventory performance</li>
+          <li>Wrote and optimized SQL queries (joins, CTEs, window functions) to extract and transform transactional datasets of 100K+ records, cutting data retrieval time from hours to minutes</li>
+          <li>Automated 10+ recurring weekly/monthly reports using Power Query and Excel, freeing up one full workday per week</li>
+          <li>Conducted competitive pricing analysis and market benchmarking, partnering with 5+ stakeholders across sales, finance, and operations</li>
+          <li>Performed margin and profitability analysis across product lines, delivering pricing recommendations that supported gross margin improvement</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section style="padding-top:0; max-width:1280px; margin:0 auto; padding-left:10vw; padding-right:10vw; padding-bottom:96px;">
+  <div class="section-label">Learning</div>
+  <h2 class="section-title">Certifications</h2>
+  <div class="cert-grid">
+    <div class="cert-card"><div class="cert-icon">📊</div><div class="cert-name">Data Analysis Bootcamp & Virtual Internship</div><div class="cert-issuer">Codebasics</div></div>
+    <div class="cert-card"><div class="cert-icon">🔬</div><div class="cert-name">IBM Data Science Specialization</div><div class="cert-issuer">IBM · Coursera</div></div>
+    <div class="cert-card"><div class="cert-icon">☁️</div><div class="cert-name">Architecting with Google Compute Engine</div><div class="cert-issuer">Google · Coursera</div></div>
+    <div class="cert-card"><div class="cert-icon">🐍</div><div class="cert-name">Python for Everybody</div><div class="cert-issuer">University of Michigan · Coursera</div></div>
+    <div class="cert-card"><div class="cert-icon">🤖</div><div class="cert-name">IBM Machine Learning</div><div class="cert-issuer">IBM · Coursera</div></div>
+  </div>
+</section>
+
 <!-- PROJECTS -->
 <section id="projects">
   <div class="section-label">Work</div>
   <h2 class="section-title">Featured Projects</h2>
   <div class="projects-grid">
- 
+
     <div class="project-card">
       <div style="grid-column: 1 / -1;">
         <div style="display:grid; grid-template-columns: 1fr auto; gap: 24px; align-items: start; margin-bottom: 20px;">
@@ -407,7 +482,7 @@
         </a>
       </div>
     </div>
- 
+
     <div class="project-card">
       <div>
         <div class="project-num">02</div>
@@ -420,7 +495,7 @@
       </div>
       <div class="project-badge">Excel</div>
     </div>
- 
+
     <div class="project-card">
       <div style="grid-column: 1 / -1;">
         <div style="display:grid; grid-template-columns: 1fr auto; gap: 24px; align-items: start; margin-bottom: 20px;">
@@ -483,7 +558,7 @@
         </a>
       </div>
     </div>
- 
+
     <div class="project-card">
       <div style="grid-column: 1 / -1;">
         <div style="display:grid; grid-template-columns: 1fr auto; gap: 24px; align-items: start; margin-bottom: 20px;">
@@ -555,7 +630,7 @@
         </a>
       </div>
     </div>
- 
+
     <div class="project-card">
       <div>
         <div class="project-num">05</div>
@@ -568,7 +643,7 @@
       </div>
       <div class="project-badge">Java</div>
     </div>
- 
+
     <div class="project-card">
       <div>
         <div class="project-num">06</div>
@@ -581,10 +656,10 @@
       </div>
       <div class="project-badge">Spring Boot</div>
     </div>
- 
+
   </div>
 </section>
- 
+
 <!-- TOOLS & TECHNOLOGIES -->
 <div id="tools" style="background: var(--surface); max-width:100%; padding: 96px 10vw;">
   <div style="max-width:1280px; margin:0 auto;">
@@ -593,7 +668,7 @@
     <div id="tools-grid" style="display:grid; grid-template-columns: repeat(auto-fill, minmax(120px,1fr)); gap:20px;"></div>
   </div>
 </div>
- 
+
 <style>
   .tool-card {
     background: var(--card); border: 1px solid var(--border); border-radius: 6px;
@@ -605,7 +680,7 @@
   .tool-card svg { width: 42px; height: 42px; }
   .tool-name { font-size: 0.75rem; color: var(--muted); text-align: center; letter-spacing: 0.04em; }
 </style>
- 
+
 <script>
 (function() {
   const tools = [
@@ -870,7 +945,7 @@
         <path d="M43.6 22.2L25.8 4.4c-1.1-1.1-3-1.1-4.2 0l-4.2 4.2 5.3 5.3c1.2-0.4 2.7-0.1 3.6 0.8 1 1 1.2 2.5 0.7 3.7l5.1 5.1c1.2-0.5 2.7-0.3 3.7 0.7 1.4 1.4 1.4 3.7 0 5.1-1.4 1.4-3.7 1.4-5.1 0-1.1-1.1-1.3-2.7-0.7-4l-4.8-4.8v12.6c0.7 0.3 1.3 0.8 1.8 1.3 1.4 1.4 1.4 3.7 0 5.1-1.4 1.4-3.7 1.4-5.1 0-1.4-1.4-1.4-3.7 0-5.1 0.6-0.6 1.4-1 2.2-1.1V20.2c-0.8-0.2-1.6-0.6-2.2-1.2-1.1-1.1-1.4-2.7-0.8-4.1L16 9.9 4.4 21.4c-1.1 1.1-1.1 3 0 4.2l17.8 17.8c1.1 1.1 3 1.1 4.2 0L43.6 26.4c1.2-1.1 1.2-3 0-4.2z" fill="white"/>
       </svg>`
     },
- 
+
     {
       name: "Hibernate",
       svg: `<svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
@@ -880,7 +955,7 @@
       </svg>`
     },
   ];
- 
+
   const grid = document.getElementById("tools-grid");
   tools.forEach(t => {
     const card = document.createElement("div");
@@ -897,63 +972,7 @@
   });
 })();
 </script>
- 
-<!-- EXPERIENCE -->
-<section id="experience">
-  <div class="section-label">Career</div>
-  <h2 class="section-title">Experience</h2>
-  <div class="timeline">
- 
-    <div class="timeline-item">
-      <div class="timeline-date">Apr 2023 – Sep 2023</div>
-      <div class="timeline-dot"></div>
-      <div class="timeline-content">
-        <h4>Data Analyst Intern</h4>
-        <div class="company">AtliQ Technologies · Internship</div>
-        <ul>
-          <li>Performed data analysis and trend identification, improving reporting accuracy by 20% through structured classification and data validation & reconciliation workflows</li>
-          <li>Created and maintained Power BI visualizations and reports, enhancing data visibility and reducing analysis time by 25% using integrity-focused metric definitions</li>
-          <li>Collaborated with stakeholders to gather requirements and deliver data-driven solutions, improving reporting efficiency by 15% by translating business needs into measurable KPIs</li>
-          <li>Conducted data cleaning and preprocessing, ensuring high data consistency and significantly reducing data errors across reporting systems</li>
-          <li>Monitored data quality, resolved discrepancies, and reinforced data governance expectations; supported ETL processes, improving data processing efficiency and reducing report generation delays</li>
-          <li>Enhanced reporting workflows by identifying inefficiencies and implementing improvements, increasing team productivity by 30% through relational database-style organization using data warehousing concepts</li>
-        </ul>
-      </div>
-    </div>
- 
-    <div class="timeline-item">
-      <div class="timeline-date">Sep 2020 – Aug 2021</div>
-      <div class="timeline-dot"></div>
-      <div class="timeline-content">
-        <h4>Pricing Analyst — Retail Data Analytics</h4>
-        <div class="company">OrbitWebTech · India (Remote)</div>
-        <ul>
-          <li>Analyzed sales, pricing, and product performance data across 500+ SKUs using SQL, Excel, and Power BI to identify pricing opportunities and support price optimization</li>
-          <li>Developed 6–8 interactive Power BI dashboards with Power Query and DAX to monitor retail KPIs including revenue growth, gross margin, ASP, and inventory performance</li>
-          <li>Wrote and optimized SQL queries (joins, CTEs, window functions) to extract and transform transactional datasets of 100K+ records, cutting data retrieval time from hours to minutes</li>
-          <li>Automated 10+ recurring weekly/monthly reports using Power Query and Excel, freeing up one full workday per week</li>
-          <li>Conducted competitive pricing analysis and market benchmarking, partnering with 5+ stakeholders across sales, finance, and operations</li>
-          <li>Performed margin and profitability analysis across product lines, delivering pricing recommendations that supported gross margin improvement</li>
-        </ul>
-      </div>
-    </div>
- 
-  </div>
-</section>
- 
-<!-- CERTIFICATIONS -->
-<section style="padding-top:0; max-width:1280px; margin:0 auto; padding-left:10vw; padding-right:10vw; padding-bottom:96px;">
-  <div class="section-label">Learning</div>
-  <h2 class="section-title">Certifications</h2>
-  <div class="cert-grid">
-    <div class="cert-card"><div class="cert-icon">📊</div><div class="cert-name">Data Analysis Bootcamp & Virtual Internship</div><div class="cert-issuer">Codebasics</div></div>
-    <div class="cert-card"><div class="cert-icon">🔬</div><div class="cert-name">IBM Data Science Specialization</div><div class="cert-issuer">IBM · Coursera</div></div>
-    <div class="cert-card"><div class="cert-icon">☁️</div><div class="cert-name">Architecting with Google Compute Engine</div><div class="cert-issuer">Google · Coursera</div></div>
-    <div class="cert-card"><div class="cert-icon">🐍</div><div class="cert-name">Python for Everybody</div><div class="cert-issuer">University of Michigan · Coursera</div></div>
-    <div class="cert-card"><div class="cert-icon">🤖</div><div class="cert-name">IBM Machine Learning</div><div class="cert-issuer">IBM · Coursera</div></div>
-  </div>
-</section>
- 
+
 <!-- CONTACT -->
 <div id="contact">
   <div class="contact-inner">
@@ -984,10 +1003,10 @@
     </div>
   </div>
 </div>
- 
+
 <footer>
   Designed with care · <span>Riya Arvadia</span> · 2025
 </footer>
- 
+
 </body>
 </html>
